@@ -54,7 +54,7 @@
 # Finally, execute test scenarios using the function test_scenarios
 
 # Concurrent users (these will by multiplied by the number of JMeter servers)
-default_concurrent_users="50 100 150 300 500"
+default_concurrent_users="10"
 # Application heap Sizes
 default_heap_sizes="2G"
 
@@ -403,7 +403,7 @@ function run_tenant_test_data_scripts() {
 
     echo "Running tenant test data setup scripts"
     echo "=========================================================================================="
-    declare -a scripts=("TestData_Add_Tenants.jmx" "TestData_SCIM2_Add_Tenant_Users.jmx" "TestData_Add_Tenant_SAML_Apps.jmx" "TestData_Add_Tenant_OAuth_Apps.jmx")
+    declare -a scripts=("TestData_Add_Tenants.jmx")
     setup_dir="/home/ubuntu/workspace/jmeter/setup"
 
     for script in "${scripts[@]}"; do
@@ -549,7 +549,7 @@ function test_scenarios() {
                       jmeter_params+=" -JtenantMode=true -JnoOfTenants=$noOfTenants -JspCount=$spCount -JuserCount=$userCount"
                 fi
 
-                before_execute_test_scenario
+                #before_execute_test_scenario
 
                 export JVM_ARGS="-Xms$jmeter_client_heap_size -Xmx$jmeter_client_heap_size -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:$report_location/jmeter_gc.log $JMETER_JVM_ARGS"
 
