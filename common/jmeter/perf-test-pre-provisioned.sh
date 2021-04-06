@@ -95,7 +95,7 @@ populateTestData=true
 rds_host=""
 databaseType="mysql"
 databaseName="IDENTITY_DB"
-noOfTenants=100
+noOfTenants=5
 spCount=10
 userCount=1000
 
