@@ -71,6 +71,3 @@ password = "wso2carbon"
 [truststore]
 name = "client-truststore.jks"
 password = "wso2carbon"
-
-[session_data.persistence]
-enable_persistence = false
